@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Chart Data Project</title>
+    <style>
+        .title {
+            font-family: "Times New Roman", serif;
+            text-align: center;
+
+        }
+        #container {
+            display: flex;
+            justify-content: center;
+        }
+        #content {
+            flex-wrap: wrap;
+        }
+        .chart {
+            width: 800px;
+        }
+        * {
+            background-color: beige;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <div id="container">
+        <div id="content">
+            <h1 class="title">Education Ranking vs. Median Household Income ($)</h1>
+            <div class="chart">
+                <canvas id="barGraph"></canvas>
+            </div>
+            <br>
+            <h1 class="title">Education Ranking vs. Employment Rates (%)</h1>
+            <div class="chart">
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <script>
+        var ctx = document.getElementById("barGraph");
+        var myChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: ["Massachusetts (#1)", "Connecticut (#2)", "New Jersey (#3)", "Virginia (#4)", "New Hampshire (#5)", "Alabama (#46)", "Alaska (#47)", "Arizona (#48)", "Louisiana (#49)", "New Mexico (#50)"],
+                datasets: [{
+                    label: "Median Household Income",
+                    data: [84385, 79855, 85245, 76398, 77923, 52035, 77790, 61529, 50800, 51423],
+                    backgroundColor: [
+                        "rgba(0, 255, 0, 1)",
+                        "rgba(0, 255, 0, 1)",
+                        "rgba(0, 255, 0, 1)",
+                        "rgba(0, 255, 0, 1)",
+                        "rgba(0, 255, 0, 1)",
+                        "rgba(255, 0, 0, 1)",
+                        "rgba(255, 0, 0, 1)",
+                        "rgba(255, 0, 0, 1)",
+                        "rgba(255, 0, 0, 1)",
+                        "rgba(255, 0, 0, 1)"
+                    ],
+                    borderColor: [
+                        "rgba(0, 200, 0, 1)",
+                        "rgba(0, 200, 0, 1)",
+                        "rgba(0, 200, 0, 1)",
+                        "rgba(0, 200, 0, 1)",
+                        "rgba(0, 200, 0, 1)",
+                        "rgba(200, 0, 0, 1)",
+                        "rgba(200, 0, 0, 1)",
+                        "rgba(200, 0, 0, 1)",
+                        "rgba(200, 0, 0, 1)",
+                        "rgba(200, 0, 0, 1)"
+                    ],
+                    borderWidth: 4
+                }]
+            },
+            options: {
+                indexAxis: 'y'
+            }
+        })
+    </script>
+    <script>
+        var cty = document.getElementById("pieChart");
+        var myChart = new Chart(cty, {
+            type: "polarArea",
+            data: {
+                labels: ["Massachusetts (#1)", "Connecticut (#2)", "New Jersey (#3)", "Virginia (#4)", "New Hampshire (#5)", "Alabama (#46)", "Alaska (#47)", "Arizona (#48)", "Louisiana (#49)", "New Mexico (#50)"],
+                datasets: [{
+                    data: [63.7, 61.7, 61.8, 61, 64.6, 54, 59.6, 56.2, 54.9, 53.2],
+                    backgroundColor: [
+                        "rgb(0, 94, 9)",
+                        "rgb(12, 133, 23)",
+                        "rgb(39, 176, 51)",
+                        "rgb(71, 201, 82)",
+                        "rgb(106, 230, 116)",
+                        "rgb(247, 120, 111)",
+                        "rgb(209, 82, 73)",
+                        "rgb(161, 45, 37)",
+                        "rgb(125, 29, 22)",
+                        "rgb(82, 12, 7)"
+                    ]
+                }]
+            }
+        })
+    </script>
+</body>
+</html>
