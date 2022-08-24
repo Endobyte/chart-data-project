@@ -36,7 +36,12 @@
             <br>
             <h1 class="title">Education Ranking vs. Employment Rates (%)</h1>
             <div class="chart">
-                <canvas id="pieChart"></canvas>
+                <canvas id="polarAreaChart"></canvas>
+            </div>
+            <br>
+            <h1 class="title">Education Ranking vs. People Without Healthcare (%)</h1>
+            <div class="chart">
+                <canvas id="scatterPlot"></canvas>
             </div>
         </div>
     </div>
@@ -82,7 +87,7 @@
         })
     </script>
     <script>
-        var cty = document.getElementById("pieChart");
+        var cty = document.getElementById("polarAreaChart");
         var myChart = new Chart(cty, {
             type: "polarArea",
             data: {
@@ -102,6 +107,113 @@
                         "rgb(82, 12, 7)"
                     ]
                 }]
+            }
+        })
+    </script>
+    <script>
+        var ctz = document.getElementById("scatterPlot");
+        var myChart = new Chart(ctz, {
+            type: "scatter",
+            data: {
+                datasets:[{
+                    label: "Massachusetts (#1)",
+                    backgroundColor: "rgba(0, 94, 9)",
+                    pointBackgroundColor: "rgba(0, 94, 9)",
+                    pointRadius: 3,
+                    data: [
+                        {x: 1, y: 2.7}
+                    ]
+                }, {
+                    label: "Connecticut (#2)",
+                    backgroundColor: "rgb(12, 133, 23)",
+                    pointBackgroundColor: "rgb(12, 133, 23)",
+                    pointRadius: 3,
+                    data: [
+                        {x: 2, y: 5.1}
+                    ]
+                }, {
+                    label: "New Jersey (#3)",
+                    backgroundColor: "rgb(39, 176, 51)",
+                    pointBackgroundColor: "rgb(39, 176, 51)",
+                    pointRadius: 3,
+                    data: [
+                        {x: 3, y: 7.6}
+                    ]
+                }, {
+                    label: "Virginia (#4)",
+                    backgroundColor: "rgb(71, 201, 82)",
+                    pointBackgroundColor: "rgb(71, 201, 82)",
+                    pointRadius: 3,
+                    data: [
+                        {x: 4, y: 8.2}
+                    ]
+                }, {
+                    label: "New Hampshire (#5)",
+                    backgroundColor: "rgb(106, 230, 116)",
+                    pointBackgroundColor: "rgb(106, 230, 116)",
+                    pointRadius: 3,
+                    data: [
+                        {x: 5, y: 6}
+                    ]
+                }, {
+                    label: "Alabama (#46)",
+                    backgroundColor: "rgb(247, 120, 111)",
+                    pointBackgroundColor: "rgb(247, 120, 111)",
+                    pointRadius: 3,
+                    data: [
+                        {x: 6, y: 9.5}
+                    ]
+                }, {
+                    label: "Alaska (#47)",
+                    backgroundColor: "rgb(209, 82, 73)",
+                    pointBackgroundColor: "rgb(209, 82, 73)",
+                    pointRadius: 3,
+                    data: [
+                        {x: 7, y: 12.6}
+                    ]
+                }, {
+                    label: "Arizona (#48)",
+                    backgroundColor: "rgb(161, 45, 37)",
+                    pointBackgroundColor: "rgb(161, 45, 37)",
+                    pointRadius: 3,
+                    data: [
+                        {x: 8, y: 10.6}
+                    ]
+                }, {
+                    label: "Louisiana (#49)",
+                    backgroundColor: "rgb(125, 29, 22)",
+                    pointBackgroundColor: "rgb(125, 29, 22)",
+                    pointRadius: 3,
+                    data: [
+                        {x: 9, y: 8.7}
+                    ]
+                }, {
+                    label: "New Mexico (#50)",
+                    backgroundColor: "rgb(82, 12, 7)",
+                    pointBackgroundColor: "rgb(82, 12, 7)",
+                    pointRadius: 3,
+                    data: [
+                        {x: 10, y: 9.5}
+                    ]
+                }]
+            },
+            options: {
+                scales: {
+                    xAxis: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: "Ranking (condensed for readability)"
+                        }
+                    },
+                    yAxis: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: "% Without Healthcare"
+                        }
+                    }
+                }
             }
         })
     </script>
